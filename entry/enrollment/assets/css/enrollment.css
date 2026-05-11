@@ -1,0 +1,73 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+.required {
+  color: #dc3545;
+}
+
+.register {
+  padding-top: 24px;
+}
+
+.input-wrapper > input::placeholder {
+  color: #7c9307;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input {
+  padding: 8px 12px;
+  border: 2px solid #a8cf45;
+  outline: none;
+  width: 280px;
+  border-radius: 14px;
+  background: white;
+}
+
+.input-wrapper label {
+  position: absolute;
+  right: 15px;
+  font-size: 14px;
+  transform: translateY(-50%);
+  padding: 0 5px;
+  color: #7c9307;
+  pointer-events: none;
+  background: white;
+}
+
+.register-btn {
+  padding: 5px 40px;
+  font-weight: bold;
+  border: 2px solid #a8cf45;
+  color: #7c9307;
+  outline: none;
+  border-radius: 14px;
+  background: none;
+  cursor: pointer;
+}
+
+.buttons-wrapper {
+  background-color: #f6fae8;
+}
+
+@media (max-width: 991.98px) {
+  .input-wrapper {
+    flex-basis: 100% !important;
+  }
+
+  .info > div {
+    width: 340px !important;
+  }
+
+  .info > div > form > div {
+    gap: 16px !important;
+  }
+}

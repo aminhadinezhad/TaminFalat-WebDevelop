@@ -1,0 +1,33 @@
+.transaction-btn.active .arrow-down {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 991.98px) {
+  .order-info {
+    justify-content: space-between !important;
+  }
+
+  .border-lg-none {
+    border: none !important;
+  }
+
+  .display-lg-none {
+    display: none !important;
+  }
+
+  .content-col-r {
+    display: none !important;
+  }
+
+  .content-col-l {
+    width: 100% !important;
+  }
+
+  .header-dashboard {
+    display: none !important;
+  }
+
+  .container-dashboard {
+    padding: 12px 12px !important;
+  }
+}

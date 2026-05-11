@@ -1,0 +1,85 @@
+.login {
+  padding-top: 24px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+.input-wrapper > input::placeholder {
+  color: #7c9307;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.login-form {
+  width: 400px;
+}
+
+.input-wrapper input {
+  padding: 10px 12px;
+  border: 2px solid #a8cf45;
+  outline: none;
+  width: 100%;
+  border-radius: 14px;
+  background: white;
+}
+
+.input-wrapper label {
+  position: absolute;
+  font-size: 14px;
+  right: 15px;
+  transform: translateY(-50%);
+  padding: 0 5px;
+  color: #7c9307;
+  pointer-events: none;
+  background: white;
+}
+
+.login-btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  border: 2px solid #a8cf45;
+  color: #7c9307;
+  outline: none;
+  border-radius: 14px;
+  background: none;
+  width: 20%;
+}
+
+.register-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  display: inline-block;
+  border: 2px solid #a8cf45;
+  color: #7c9307;
+  outline: none;
+  border-radius: 14px;
+  background: none;
+  text-decoration: none;
+  width: 78%;
+}
+
+@media (max-width: 991.98px) {
+  .login-form {
+    width: 300px !important;
+  }
+
+  .login-btn {
+    font-size: 14px !important;
+  }
+
+  .register-link {
+    font-size: 14px !important;
+  }
+}
