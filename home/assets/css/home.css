@@ -193,11 +193,15 @@
   padding-top: 48px;
 }
 
+.widget {
+  padding-top: 48px;
+}
+
 .kitchen {
   padding-top: 48px;
 }
 
-.widget {
+.mini-banners {
   padding-top: 48px;
 }
 
@@ -358,14 +362,19 @@
     font-size: 12px !important;
   }
 
+  
+  .widget {
+    padding-top: 24px !important;
+  }
+  
   .kitchen {
     padding-top: 24px !important;
   }
 
-  .widget {
+  .mini-banners {
     padding-top: 24px !important;
   }
-
+  
   .product-cards {
     background-color: #fff;
     padding-top: 24px;
