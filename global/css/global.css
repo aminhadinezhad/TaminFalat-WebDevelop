@@ -67,6 +67,7 @@ label,
 
 .sidebar {
   background-color: #e9e9e9;
+  padding: 16px 16px 64px 16px;
 }
 
 .sidebar-search form {
