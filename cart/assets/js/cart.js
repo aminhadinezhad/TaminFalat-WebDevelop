@@ -13,7 +13,7 @@ let cart = [
   },
 
   {
-    id: 2,
+    id: 1,
     code: '561',
     name: 'زونکن A4 قرمز متالکو 7/5 سانت',
     unitPrice: 258400,
@@ -94,7 +94,7 @@ function renderCart() {
 
   document.getElementById('totalAmount').innerHTML =
     `${total} <small style="font-size:.75rem;font-weight:500">تومان</small>`;
-  document.getElementById('cartBadge').textContent = toFarsiNum(cart.length);
+  document.getElementById('cartBadge').textContent = cart.length;
 }
 
 function changeQty(idx, delta) {
