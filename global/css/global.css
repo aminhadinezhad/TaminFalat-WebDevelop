@@ -6,30 +6,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Kalameh";
-  src: url("../fonts/KalamehWeb\(FaNum\)-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("../fonts/KalamehWeb\(FaNum\)-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Kalameh";
-  src: url("../fonts/KalamehWeb\(FaNum\)-Bold.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -85,7 +61,7 @@ label,
 .text-search {
   width: 100%;
   display: block;
-  padding: 8px 48px 8px 16px;
+  padding: 8px 48px 8px 12px;
   background-color: #fff;
   border-radius: 30px;
   border: 2px solid #a8cf45;
