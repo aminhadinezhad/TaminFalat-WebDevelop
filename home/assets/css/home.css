@@ -81,14 +81,21 @@
   opacity: 0;
 }
 
+.banner-arrow svg {
+  transition: all 0.3s ease;
+}
+
 .banner-slider-container:hover .banner-arrow {
   opacity: 1;
 }
 
 .banner-arrow:hover {
   background-color: #a8cf45;
-  color: #fff;
   transform: translateY(-50%) scale(1.1);
+}
+
+.banner-arrow:hover svg {
+  stroke: #fff;
 }
 
 .banner-arrow-prev {
@@ -295,10 +302,6 @@
   font-size: 14px;
 }
 
-.best-sellers-slider .owl-item {
-  flex-shrink: 0;
-}
-
 .features {
   padding-top: 48px;
 }
@@ -500,11 +503,6 @@
   .btn-view-products {
     font-size: 12px !important;
     padding: 4px 8px !important;
-  }
-
-  .best-sellers-item {
-    padding-left: 6px !important;
-    padding-right: 6px !important;
   }
 
   .best-sellers-item > a > img {

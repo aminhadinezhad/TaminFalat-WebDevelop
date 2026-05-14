@@ -143,9 +143,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const bestSellersSlider = document.querySelector('.best-sellers-slider');
   const bestSellerPrevBtn = document.querySelector('.best-sellers-arrow-prev');
   const bestSellerNextBtn = document.querySelector('.best-sellers-arrow-next');
-  function bestSellersGetScrollAmount() {
-    return window.innerWidth <= 991.98 ? 152 : 328;
-  }
+  const bestSellersItem = document.querySelector('.best-sellers-item');
+  let bestSellersGetScrollAmount = bestSellersItem.offsetWidth;
 
   function updateBestSellersButtons() {
     const maxScroll =
@@ -170,14 +169,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   bestSellerPrevBtn.addEventListener('click', () => {
     bestSellersSlider.scrollBy({
-      left: bestSellersGetScrollAmount(),
+      left: bestSellersGetScrollAmount,
       behavior: 'smooth',
     });
   });
 
   bestSellerNextBtn.addEventListener('click', () => {
     bestSellersSlider.scrollBy({
-      left: -bestSellersGetScrollAmount(),
+      left: -bestSellersGetScrollAmount,
       behavior: 'smooth',
     });
   });
@@ -194,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bestSellersSlider.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
         bestSellersSlider.scrollBy({
-          left: -bestSellersGetScrollAmount(),
+          left: -bestSellersGetScrollAmount,
           behavior: 'smooth',
         });
       }
