@@ -139,4 +139,91 @@ document.addEventListener('DOMContentLoaded', function () {
   categorySliderWrapper.addEventListener('touchend', startCatAutoScroll);
 
   startCatAutoScroll();
+
+  const bestSellersSlider = document.querySelector('.best-sellers-slider');
+  const bestSellerPrevBtn = document.querySelector('.best-sellers-arrow-prev');
+  const bestSellerNextBtn = document.querySelector('.best-sellers-arrow-next');
+  function bestSellersGetScrollAmount() {
+    return window.innerWidth <= 991.98 ? 152 : 328;
+  }
+
+  function updateBestSellersButtons() {
+    const maxScroll =
+      bestSellersSlider.scrollWidth - bestSellersSlider.clientWidth;
+    const currentScroll = Math.abs(bestSellersSlider.scrollLeft);
+
+    if (currentScroll < 5) {
+      bestSellerPrevBtn.setAttribute('disabled', 'true');
+      bestSellerNextBtn.removeAttribute('disabled');
+    } else if (currentScroll >= maxScroll - 5) {
+      bestSellerNextBtn.setAttribute('disabled', 'true');
+      bestSellerPrevBtn.removeAttribute('disabled');
+    } else {
+      bestSellerPrevBtn.removeAttribute('disabled');
+      bestSellerNextBtn.removeAttribute('disabled');
+    }
+  }
+
+  bestSellersSlider.addEventListener('scroll', updateBestSellersButtons);
+
+  updateBestSellersButtons();
+
+  bestSellerPrevBtn.addEventListener('click', () => {
+    bestSellersSlider.scrollBy({
+      left: bestSellersGetScrollAmount(),
+      behavior: 'smooth',
+    });
+  });
+
+  bestSellerNextBtn.addEventListener('click', () => {
+    bestSellersSlider.scrollBy({
+      left: -bestSellersGetScrollAmount(),
+      behavior: 'smooth',
+    });
+  });
+
+  let bestSellersAutoScrollInterval;
+
+  function startBestSellersAutoScroll() {
+    bestSellersAutoScrollInterval = setInterval(() => {
+      const maxScroll =
+        bestSellersSlider.scrollWidth - bestSellersSlider.clientWidth;
+      const currentScroll = Math.abs(bestSellersSlider.scrollLeft);
+
+      if (currentScroll >= maxScroll - 5) {
+        bestSellersSlider.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        bestSellersSlider.scrollBy({
+          left: -bestSellersGetScrollAmount(),
+          behavior: 'smooth',
+        });
+      }
+    }, 3000);
+  }
+
+  function stopBestSellersAutoScroll() {
+    clearInterval(bestSellersAutoScrollInterval);
+  }
+
+  const bestSellersSliderWrapper = document.querySelector(
+    '.best-sellers-slider-wrapper',
+  );
+  bestSellersSliderWrapper.addEventListener(
+    'mouseenter',
+    stopBestSellersAutoScroll,
+  );
+  bestSellersSliderWrapper.addEventListener(
+    'mouseleave',
+    startBestSellersAutoScroll,
+  );
+  bestSellersSliderWrapper.addEventListener(
+    'touchstart',
+    stopBestSellersAutoScroll,
+  );
+  bestSellersSliderWrapper.addEventListener(
+    'touchend',
+    startBestSellersAutoScroll,
+  );
+
+  startBestSellersAutoScroll();
 });
