@@ -24,7 +24,7 @@ input:-webkit-autofill:active {
 }
 
 .input-wrapper input {
-  padding: 8px 12px;
+  padding: 10px 12px;
   border: 2px solid #a8cf45;
   outline: none;
   width: 280px;
@@ -44,7 +44,7 @@ input:-webkit-autofill:active {
 }
 
 .register-btn {
-  padding: 5px 40px;
+  padding: 10px 40px;
   font-weight: bold;
   border: 2px solid #a8cf45;
   color: #7c9307;
