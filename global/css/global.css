@@ -1,30 +1,30 @@
 @font-face {
-  font-family: "Kalameh";
-  src: url("../fonts/KalamehWeb\(FaNum\)-Regular.woff2") format("woff2");
+  font-family: 'Kalameh';
+  src: url('../fonts/KalamehWeb\(FaNum\)-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Kalameh";
-  src: url("../fonts/KalamehWeb\(FaNum\)-Medium.woff2") format("woff2");
+  font-family: 'Kalameh';
+  src: url('../fonts/KalamehWeb\(FaNum\)-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Kalameh";
-  src: url("../fonts/KalamehWeb\(FaNum\)-SemiBold.woff2") format("woff2");
+  font-family: 'Kalameh';
+  src: url('../fonts/KalamehWeb\(FaNum\)-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Kalameh";
-  src: url("../fonts/KalamehWeb\(FaNum\)-Bold.woff2") format("woff2");
+  font-family: 'Kalameh';
+  src: url('../fonts/KalamehWeb\(FaNum\)-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -44,7 +44,7 @@ html {
 body {
   height: 100%;
   overflow: hidden;
-  font-family: "Kalameh";
+  font-family: 'Kalameh';
 }
 
 .content {
@@ -61,7 +61,7 @@ input,
 select,
 textarea,
 label,
-[role="button"] {
+[role='button'] {
   touch-action: manipulation;
 }
 
@@ -128,7 +128,7 @@ label,
   padding: 12px;
   border-radius: 30px;
   text-decoration: none;
-  background-color: #889d1e;
+  background-color: #7f8e25;
   color: #fff;
   transition: all 0.2s ease;
   overflow: hidden;
@@ -191,7 +191,7 @@ label,
 }
 
 .top-menu > li > a::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   right: 50%;
@@ -290,7 +290,7 @@ ul.top-menu > li > ul > li > ul li a {
 }
 
 ul.top-menu > li > ul > li > ul li a::before {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   background-color: #4caf50;
@@ -415,7 +415,7 @@ ul.top-menu > li > ul > li > ul li a:hover::before {
 }
 
 .top-menu-mobile > li > ul > li > ul > li a::before {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   background-color: #4caf50;
@@ -557,7 +557,7 @@ ul.top-menu > li > ul > li > ul li a:hover::before {
 }
 
 .bottom-nav-item::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -603,7 +603,7 @@ ul.top-menu > li > ul > li > ul li a:hover::before {
   padding: 12px;
   border-radius: 30px;
   text-decoration: none;
-  background-color: #889d1e;
+  background-color: #7f8e25;
   color: #fff;
   transition: all 0.2s ease;
   overflow: hidden;
@@ -628,6 +628,150 @@ ul.top-menu > li > ul > li > ul li a:hover::before {
   padding-right: 6px;
 }
 
+footer {
+  background-image: linear-gradient(90deg, #a8cf45, #8bb12a);
+  color: #fff;
+  margin: 64px 12px 16px 12px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.footer-wrapper {
+  padding: 48px 40px;
+}
+
+.footer-content {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #ffffff80;
+}
+
+.btn-scroll-to-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 12px 36px;
+  color: rgb(37, 86, 58);
+  background-color: #fff;
+}
+
+.btn-scroll-to-top svg {
+  color: rgb(37, 86, 58);
+}
+
+.footer-about {
+  font-size: 14px;
+  line-height: 30px;
+  text-align: justify;
+}
+
+.footer-box ul li {
+  list-style-type: none;
+}
+
+.footer-box ul li a {
+  color: #fff;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-box span.title {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.namad {
+  max-height: 101px;
+  margin: auto;
+  display: block;
+}
+
+.social-title {
+  text-align: left;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #ffffff80;
+  font-weight: bold;
+}
+
+.social-links {
+  direction: ltr;
+  text-align: left;
+}
+
+.social-links li {
+  display: inline-block;
+}
+
+.social-links li a {
+  font-size: 28px;
+  color: #fff;
+  margin-right: 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.social-links li:last-child a {
+  margin-right: 0 !important;
+}
+
+.social-links li a.instagram:hover i {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.social-links li a.linkedin:hover i {
+  color: #0077b5;
+}
+.social-links li a.telegram:hover i {
+  color: #1877f2;
+}
+.social-links li a.facebook:hover i {
+  color: #1877f2;
+}
+.social-links li a.twitter:hover i {
+  color: #1da1f2;
+}
+
+.footer-copyright {
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 24px 0;
+}
+
+.input-group > #action_subscribe {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 0.375rem !important;
+  border-bottom-right-radius: 0.375rem !important;
+}
+
+.input-group > #action_point_subscriber {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: 0.375rem !important;
+  border-bottom-left-radius: 0.375rem !important;
+}
+
 @media (max-width: 991.98px) {
   html,
   body {
@@ -638,10 +782,54 @@ ul.top-menu > li > ul > li > ul li a:hover::before {
   .content {
     height: auto !important;
     overflow-y: visible !important;
-    padding-bottom: 100px !important;
+    padding-bottom: 86px !important;
   }
 
   .col-l {
     width: 100% !important;
+  }
+
+  footer {
+    border-radius: 16px !important;
+    margin: 64px 8px 8px 8px !important;
+  }
+
+  .footer-wrapper {
+    padding: 24px 16px !important;
+  }
+
+  .footer-content {
+    margin-top: 16px !important;
+    padding-top: 16px !important;
+  }
+
+  .btn-scroll-to-top {
+    gap: 8px !important;
+    padding: 6px 18px !important;
+  }
+
+  .btn-scroll-to-top svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .footer-header-logo {
+    width: 110px !important;
+  }
+
+  .footer-copyright {
+    font-size: 11px !important;
+  }
+
+  ul.social-links {
+    text-align: center !important;
+    margin-top: 8px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .social-title {
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    text-align: center !important;
   }
 }

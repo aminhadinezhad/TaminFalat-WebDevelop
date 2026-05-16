@@ -382,7 +382,7 @@
 
 @media (max-width: 991.98px) {
   .banners {
-    padding-top: 24px;
+    padding-top: 24px !important;
   }
 
   .banner-slider-container {
@@ -454,9 +454,9 @@
   }
 
   .cups a.btn {
-    --bs-btn-padding-y: var(--bs-btn-padding-y-sm, 4px);
-    --bs-btn-padding-x: var(--bs-btn-padding-x-sm, 8px);
-    --bs-btn-font-size: var(--bs-btn-font-size-sm, 14px);
+    --bs-btn-padding-y: var(--bs-btn-padding-y-sm, 4px) !important;
+    --bs-btn-padding-x: var(--bs-btn-padding-x-sm, 8px) !important;
+    --bs-btn-font-size: var(--bs-btn-font-size-sm, 14px) !important;
   }
 
   .spices p:nth-child(1) {
@@ -492,8 +492,8 @@
   }
 
   .product-cards {
-    background-color: #fff;
-    padding-top: 24px;
+    background-color: #fff !important;
+    padding-top: 24px !important;
   }
 
   .product-card-overlay {
@@ -548,9 +548,9 @@
   }
 
   .product-box .title {
-    padding-top: 5px;
+    padding-top: 5px !important;
     border-bottom: none !important;
     margin-bottom: 0 !important;
-    padding-bottom: 5px;
+    padding-bottom: 5px !important;
   }
 }
