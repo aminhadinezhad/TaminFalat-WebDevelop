@@ -654,12 +654,12 @@ footer {
   border-radius: 8px;
   font-size: 14px;
   padding: 12px 36px;
-  color: rgb(37, 86, 58);
+  color: #8bb12a;
   background-color: #fff;
 }
 
 .btn-scroll-to-top svg {
-  color: rgb(37, 86, 58);
+  color: #8bb12a;
 }
 
 .footer-about {
