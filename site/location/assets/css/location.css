@@ -153,15 +153,7 @@ label {
   .modal-sm {
     width: 500px !important;
   }
-
-  #map {
-    height: 300px !important;
-  }
-
-  .modal-sm {
-    width: 350px !important;
-  }
-
+  
   .card-text-primary {
     font-size: 14px !important;
   }

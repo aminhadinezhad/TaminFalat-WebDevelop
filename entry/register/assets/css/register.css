@@ -19,12 +19,34 @@ input:-webkit-autofill:active {
   color: #7c9307;
 }
 
+.toggle-password {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #a8cf45;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password-confirmation {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #a8cf45;
+  display: flex;
+  align-items: center;
+}
+
 .input-wrapper {
   position: relative;
 }
 
 .input-wrapper input {
-  padding: 10px 12px;
+  padding: 10px 12px 10px 40px;
   border: 2px solid #a8cf45;
   outline: none;
   width: 280px;
