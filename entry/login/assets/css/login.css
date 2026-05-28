@@ -11,7 +11,6 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #000 !important;
 }
 
-
 .input-wrapper {
   position: relative;
   margin-bottom: 16px;
@@ -33,7 +32,7 @@ input:-webkit-autofill:active {
 }
 
 .input-wrapper input {
-  padding: 10px 12px 10px 40px;
+  padding: 10px 12px;
   border: 2px solid var(--blue-400);
   outline: none;
   width: 100%;

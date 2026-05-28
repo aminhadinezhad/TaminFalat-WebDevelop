@@ -182,6 +182,11 @@
   padding-top: 48px;
 }
 
+.feature svg {
+  width: 110px;
+  height: 110px;
+}
+
 .widget {
   padding-top: 48px;
 }
@@ -284,6 +289,10 @@
 
   .dot.active {
     width: 20px !important;
+  }
+
+  .features-container > div {
+    gap: 16px !important;
   }
 
   .feature svg {

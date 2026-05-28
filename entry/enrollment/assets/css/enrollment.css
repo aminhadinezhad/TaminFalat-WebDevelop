@@ -38,7 +38,7 @@ input:-webkit-autofill:active {
 }
 
 .input-wrapper input {
-  padding: 10px 12px 10px 40px;
+  padding: 10px 12px;
   border: 2px solid var(--blue-400);
   outline: none;
   width: 280px;
