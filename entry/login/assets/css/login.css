@@ -11,9 +11,6 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #000 !important;
 }
 
-.input-wrapper > input::placeholder {
-  color: #7c9307;
-}
 
 .input-wrapper {
   position: relative;
@@ -30,14 +27,14 @@ input:-webkit-autofill:active {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: #a8cf45;
+  color: var(--blue-600);
   display: flex;
   align-items: center;
 }
 
 .input-wrapper input {
   padding: 10px 12px 10px 40px;
-  border: 2px solid #a8cf45;
+  border: 2px solid var(--blue-400);
   outline: none;
   width: 100%;
   border-radius: 14px;
@@ -50,7 +47,7 @@ input:-webkit-autofill:active {
   right: 15px;
   transform: translateY(-50%);
   padding: 0 5px;
-  color: #7c9307;
+  color: var(--blue-600);
   pointer-events: none;
   background: white;
 }
@@ -66,8 +63,8 @@ input:-webkit-autofill:active {
   flex: 1;
   padding: 10px;
   font-weight: 600;
-  border: 2px solid #a8cf45;
-  color: #7c9307;
+  border: 2px solid var(--blue-400);
+  color: var(--blue-600);
   outline: none;
   border-radius: 14px;
   background: none;
@@ -81,8 +78,8 @@ input:-webkit-autofill:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #a8cf45;
-  color: #7c9307;
+  border: 2px solid var(--blue-400);
+  color: var(--blue-600);
   outline: none;
   border-radius: 14px;
   background: none;

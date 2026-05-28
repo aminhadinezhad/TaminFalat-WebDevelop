@@ -51,14 +51,14 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: rgba(168, 207, 69, 0.5);
+  background-color: var(--orange-100);
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
 }
 
 .dot.active {
-  background-color: #a8cf45;
+  background-color: var(--orange-400);
   width: 28px;
   border-radius: 5px;
 }
@@ -90,7 +90,7 @@
 }
 
 .banner-arrow:hover {
-  background-color: #a8cf45;
+  background-color: var(--orange-400);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -137,13 +137,13 @@
 }
 
 .category-item span {
-  color: #7f8e25;
+  color: var(--blue-800);
   font-weight: 600;
   transition: 0.2s ease;
 }
 
 .category-item a:hover span {
-  color: #a8cf45;
+  color: var(--orange-400);
 }
 
 .category-arrow {
@@ -237,9 +237,9 @@
 
 .btn-view-products {
   background-color: #fff;
-  color: #7f8e25;
+  color: var(--blue-400);
   padding: 6px 12px;
-  border: 2px solid #7f8e25;
+  border: 2px solid var(--blue-400);
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
@@ -248,7 +248,7 @@
 }
 
 .btn-view-products:hover {
-  background-color: #7f8e25;
+  background-color: var(--blue-400);
   color: #fff;
 }
 
@@ -286,7 +286,7 @@
     width: 20px !important;
   }
 
-  .feature img {
+  .feature svg {
     width: 60px !important;
     height: 60px !important;
   }

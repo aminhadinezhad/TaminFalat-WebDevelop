@@ -12,7 +12,7 @@
 
 .h-line--person::before {
   content: '';
-  background-color: rgb(240, 245, 242);
+  background-color: var(--blue-70);
   width: 110px;
   height: 4px;
   right: 50%;
@@ -26,7 +26,7 @@
 
 .h-line--order::before {
   content: '';
-  background-color: rgb(240, 245, 242);
+  background-color: var(--blue-70);
   width: 110px;
   height: 4px;
   right: 50%;
@@ -38,8 +38,8 @@
   position: absolute;
   text-decoration: none;
   border-radius: 6px;
-  background: rgb(34, 120, 60);
-  color: rgb(255, 255, 255);
+  background: var(--blue-400);
+  color: #fff;
   padding: 8px 24px;
   bottom: -20px;
   left: 20px;
@@ -51,7 +51,7 @@
 
 .v-line::after {
   content: '';
-  background-color: rgb(240, 245, 242);
+  background-color: var(--blue-70);
   width: 120px;
   height: 4px;
   position: absolute;
@@ -61,7 +61,7 @@
 }
 
 .more-details:hover {
-  background-color: rgb(230, 235, 232);
+  background-color: var(--blue-100);
 }
 
 @media (max-width: 991.98px) {
