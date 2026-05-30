@@ -1,6 +1,29 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
+  (function () {
+    let lastScrollY = 0;
+
+    window.addEventListener(
+      'scroll',
+      function () {
+        const wrapper = document.getElementById('festival-banner-wrapper');
+        if (!wrapper) return;
+
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY === 0) {
+          wrapper.style.height = '50px';
+        } else {
+          wrapper.style.height = '0';
+        }
+
+        lastScrollY = currentScrollY;
+      },
+      { passive: true },
+    );
+  })();
+
   const slides = document.querySelectorAll('.banner-slide');
   const dots = document.querySelectorAll('.dot');
   const prevBtn = document.querySelector('.banner-arrow-prev');

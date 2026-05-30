@@ -1,4 +1,4 @@
-.login {
+.disremember {
   padding-top: 24px;
 }
 
@@ -16,19 +16,8 @@ input:-webkit-autofill:active {
   margin-bottom: 16px;
 }
 
-.login-form {
+.disremember-form {
   width: 400px;
-}
-
-.toggle-password {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: var(--blue-600);
-  display: flex;
-  align-items: center;
 }
 
 .input-wrapper input {
@@ -51,14 +40,7 @@ input:-webkit-autofill:active {
   background: white;
 }
 
-.btn-wrapper {
-  display: flex;
-  gap: 6px;
-  width: 100%;
-  height: 48px;
-}
-
-.login-btn {
+.disremember-btn {
   flex: 1;
   padding-right: 12px;
   padding-left: 12px;
@@ -68,35 +50,16 @@ input:-webkit-autofill:active {
   outline: none;
   border-radius: 14px;
   background: none;
+  height: 48px;
   cursor: pointer;
 }
 
-.register-link {
-  flex: 5;
-  padding-right: 12px;
-  padding-left: 12px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--blue-400);
-  color: var(--blue-600);
-  outline: none;
-  border-radius: 14px;
-  background: none;
-  text-decoration: none;
-}
-
 @media (max-width: 991.98px) {
-  .login-form {
+  .disremember-form {
     width: 300px !important;
   }
 
-  .login-btn {
-    font-size: 14px !important;
-  }
-
-  .register-link {
+  .disremember-btn {
     font-size: 14px !important;
   }
 }

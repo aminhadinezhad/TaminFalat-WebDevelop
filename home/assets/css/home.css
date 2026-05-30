@@ -1,3 +1,7 @@
+.content {
+  height: calc(100vh - 100px) !important;
+}
+
 .banner-slider-container {
   position: relative;
   width: 90%;

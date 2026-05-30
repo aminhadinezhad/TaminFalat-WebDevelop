@@ -139,6 +139,7 @@
   color: #1a1d20;
   display: flex;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
 }
 
@@ -146,9 +147,6 @@
   color: #dc3545;
 }
 
-.qty-btn svg {
-  cursor: pointer;
-}
 
 .qty-val {
   min-width: 36px;
@@ -284,16 +282,16 @@ textarea.form-control {
   margin-bottom: 0;
 }
 
-.btn-main {
+.btn-continue {
   background: var(--blue-400);
-  color: #fff;
-  border: none;
+   color: #fff;
+  border: 1.5px solid var(--blue-400);
   border-radius: 9px;
-  padding: 13px 28px;
-  font-size: 0.95rem;
-  font-weight: 700;
+  padding: 12px 28px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.28s;
   cursor: pointer;
-  transition: all 0.18s;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -301,16 +299,16 @@ textarea.form-control {
   width: 100%;
 }
 
-.btn-main:hover {
+.btn-continue:hover {
   background: var(--blue-600);
 }
 
-.btn-outline-main,
-.btn-outline-main svg {
-  transition: all 0.18s;
+.btn-preview,
+.btn-preview svg {
+  transition: all 0.28s;
 }
 
-.btn-outline-main {
+.btn-preview {
   background: transparent;
   color: var(--blue-400);
   border: 1.5px solid var(--blue-400);
@@ -326,13 +324,36 @@ textarea.form-control {
   width: 100%;
 }
 
-.btn-outline-main:hover {
+.btn-preview:hover {
   background: var(--blue-400);
   color: #fff;
 }
 
-.btn-outline-main:hover svg {
+.btn-preview:hover svg {
   stroke: #fff;
+}
+
+.btn-login {
+  background: var(--orange-400);
+  color: #fff;
+  border: 1.5px solid var(--orange-400);
+  border-radius: 9px;
+  margin-top: 6px;
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.28s;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn-login:hover {
+  background: var(--orange-600);
 }
 
 .empty-cart {
