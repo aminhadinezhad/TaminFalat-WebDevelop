@@ -159,20 +159,24 @@ label,
   position: relative;
 }
 
-.sidebar-cart svg {
-  stroke: var(--orange-400);
-}
-
-.basket-count {
+.cart-count-badge {
   position: absolute;
   background-color: var(--blue-400);
-  color: #fff;
+  color: #fff !important;
   text-align: center;
   border-radius: 30px;
   padding: 1px 8px;
-  right: -15px;
-  bottom: 5px;
   font-size: 12px;
+}
+
+.cart-count-badge--sidebar {
+  right: -12px;
+  bottom: 15px;
+}
+
+.cart-count-badge--bottombar {
+  top: 14px;
+  right: -5px;
 }
 
 .sidebar-support {

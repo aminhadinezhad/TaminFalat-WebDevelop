@@ -30,12 +30,15 @@ function formatPrice(n) {
 
 function renderCart() {
   const tbody = document.getElementById('cartBody');
+  const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
   tbody.innerHTML = '';
 
   if (cart.length === 0) {
     document.getElementById('mainContent').classList.add('hidden');
     document.getElementById('emptyCartFull').classList.remove('hidden');
-    document.getElementById('cartBadge').textContent = '۰';
+    document.querySelectorAll('.cart-count-badge').forEach(countBadge => {
+      countBadge.classList.add('d-none');
+    });
     return;
   }
 
@@ -98,7 +101,9 @@ function renderCart() {
 
   document.getElementById('totalAmount').innerHTML =
     `${formatPrice(total)} <small style="font-size:.75rem;font-weight:500">تومان</small>`;
-  document.getElementById('cartBadge').textContent = cart.length;
+  document.querySelectorAll('.cart-count-badge').forEach(countBadge => {
+    countBadge.textContent = totalQty;
+  });
 }
 
 function changeQty(idx, delta) {

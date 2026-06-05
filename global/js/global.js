@@ -1,11 +1,18 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
+  const cartCountBadge = document.querySelectorAll('.cart-count-badge');
   const searchBtn = document.getElementById('searchBtn');
   const searchText = document.getElementById('searchText');
   const searchOverlay = document.getElementById('searchOverlay');
   const closeSearch = document.getElementById('closeSearch');
   const overlaySearchInput = document.getElementById('overlaySearchInput');
+
+  cartCountBadge.forEach(countBadge => {
+    if (countBadge.textContent !== '0') {
+      countBadge.classList.remove('d-none');
+    }
+  });
 
   searchBtn.addEventListener('click', function () {
     searchOverlay.classList.add('active');
