@@ -36,8 +36,8 @@ function renderCart() {
   if (cart.length === 0) {
     document.getElementById('mainContent').classList.add('hidden');
     document.getElementById('emptyCartFull').classList.remove('hidden');
-    document.querySelectorAll('.cart-count-badge').forEach(countBadge => {
-      countBadge.classList.add('d-none');
+    document.querySelectorAll('.basket-element-notif').forEach(elementNotif => {
+      elementNotif.classList.add('d-none');
     });
     return;
   }
@@ -101,8 +101,8 @@ function renderCart() {
 
   document.getElementById('totalAmount').innerHTML =
     `${formatPrice(total)} <small style="font-size:.75rem;font-weight:500">تومان</small>`;
-  document.querySelectorAll('.cart-count-badge').forEach(countBadge => {
-    countBadge.textContent = totalQty;
+  document.querySelectorAll('.basket-element-notif-text').forEach(count => {
+    count.textContent = totalQty;
   });
 }
 
