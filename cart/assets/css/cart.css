@@ -77,14 +77,6 @@
   border-bottom: none;
 }
 
-.product-table tbody tr {
-  transition: background 0.15s;
-}
-
-.product-table tbody tr:hover {
-  background: #fafbfc;
-}
-
 .product {
   display: flex;
   align-items: center;
@@ -313,7 +305,6 @@ textarea.form-control {
   background: var(--blue-400);
   color: #fff;
 }
-
 
 .btn-login {
   background: var(--orange-400);
