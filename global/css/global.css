@@ -64,14 +64,9 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-  overflow: hidden;
-}
-
+/* The document itself is the scroll container on every breakpoint, so the
+   browser shows its normal page scrollbar instead of an inner one. */
 body {
-  height: 100%;
-  overflow: hidden;
   font-family: 'Kalameh';
 }
 
@@ -80,11 +75,7 @@ body {
 }
 
 .content {
-  height: calc(100vh - 50px);
   width: 100%;
-  overflow-y: auto;
-  padding-left: 0;
-  box-sizing: border-box;
 }
 
 a,
@@ -97,26 +88,282 @@ label,
   touch-action: manipulation;
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  background-color: var(--gray-300);
-  padding: 16px 16px 64px 16px;
+/* ==========================================================================
+   Desktop header (>= 992px; hidden below that, where .topbar takes over)
+
+   .header-banner   promo strip — scrolls away with the page
+   .site-header     sticky bar, holds .header-main + the category nav
+   .header-nav      collapses on scroll down, expands again on scroll up
+   ========================================================================== */
+
+:root {
+  --header-banner-height: 50px;
+  --header-main-height: 84px;
+  --header-nav-height: 50px;
+  --header-height: calc(
+    var(--header-banner-height) + var(--header-main-height) +
+      var(--header-nav-height)
+  );
 }
 
-.sidebar-search form {
+/* The header is taken out of the flow and the column reserves its full height
+   instead. That reservation never changes, so collapsing the category bar
+   cannot alter the document height — which is what keeps the page scrollbar
+   behaving exactly like a normal one while it is being dragged. */
+.site-header {
+  /* Sits above page content (local dropdowns use z-index 1000) but below
+     Bootstrap modals (1055), so a modal overlay still covers the header. */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #fff;
+  border-bottom: 1px solid var(--gray-300);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+@media (min-width: 992px) {
+  .col-l {
+    padding-top: var(--header-height);
+  }
+}
+
+.header-banner {
+  height: var(--header-banner-height);
+  overflow: hidden;
+}
+
+.header-banner a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: var(--header-main-height);
+  padding: 0 24px;
+}
+
+.header-logo {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.header-logo a {
+  display: block;
+}
+
+.header-logo svg {
+  display: block;
+  width: 150px;
+  height: auto;
+}
+
+.header-search {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 620px;
+}
+
+.header-search form {
   position: relative;
 }
 
-.sidebar-search form svg {
+.header-search form svg {
   position: absolute;
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
   stroke: var(--blue-400);
+}
+
+.header-search .text-search {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-size: 14px;
+}
+
+.header-search .text-search::placeholder {
+  font-size: 14px;
+  color: var(--gray-700);
+}
+
+.header-actions {
+  flex: 0 0 auto;
+  /* Soaks up the leftover space so the group always sits at the far end of
+     the bar (the left edge, since the page is right-to-left). */
+  margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-user a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: 2px solid var(--blue-400);
+  border-radius: 30px;
+  background-color: #fff;
+  color: var(--blue-400);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.header-user svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--blue-400);
+  transition: stroke 0.2s ease;
+}
+
+.header-user a:hover {
+  background-color: var(--blue-400);
+  color: #fff;
+}
+
+.header-user a:hover svg {
+  stroke: #fff;
+}
+
+.header-cart a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--orange-70);
+  border: 1px solid var(--orange-100);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.header-cart a:hover {
+  background-color: var(--orange-100);
+  border-color: var(--orange-200);
+}
+
+.header-cart svg {
+  width: 24px;
+  height: 24px;
+}
+
+.element-notif--header {
+  right: -4px !important;
+  top: -4px !important;
+  padding: 0 !important;
+}
+
+.element-notif--header.basket-element-notif {
+  width: 20px;
+  height: 20px;
+}
+
+.element-notif--header .basket-element-notif-text {
+  font-size: 11px;
+}
+
+/* A grid row animates between two lengths, so the bar's height is known up
+   front — which is what lets --header-height stay a fixed reservation. */
+.header-nav-shell {
+  display: grid;
+  grid-template-rows: var(--header-nav-height);
+  transition: grid-template-rows 0.28s ease;
+}
+
+.site-header.is-nav-collapsed .header-nav-shell {
+  grid-template-rows: 0px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-inline-end: 24px;
+  /* An inset shadow draws the divider without adding height, so the row can
+     collapse to a true zero. */
+  box-shadow: inset 0 1px 0 var(--blue-70);
+  min-height: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.site-header.is-nav-collapsed .header-nav {
+  opacity: 0;
+}
+
+.header-nav-cta {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 16px;
+  border: 2px solid var(--orange-400);
+  border-radius: 30px;
+  background-color: #fff;
+  color: var(--orange-400);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header-nav-cta:hover,
+.header-nav-cta:focus-visible {
+  background-color: var(--orange-400);
+  color: #fff;
+}
+
+.header-nav-cta svg {
+  stroke: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-nav-shell,
+  .header-nav {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Page container
+
+   One set of side gutters for everything between the header and the footer, so
+   every page lines up. Sections that should run edge to edge — the home banner
+   and the category slider — simply sit outside it.
+   ========================================================================== */
+
+@media (min-width: 992px) {
+  .page-container {
+    max-width: 1400px;
+    margin-inline: auto;
+  }
+
+  /* The dashboard keeps the narrower measure: its panel is mostly text and
+     form rows, which get hard to scan once the lines run too long. */
+  .container-dashboard {
+    max-width: 1200px;
+    margin-inline: auto;
+  }
 }
 
 .text-search {
@@ -127,36 +374,6 @@ label,
   border-radius: 30px;
   border: 2px solid var(--blue-400);
   outline: none;
-}
-
-.sidebar-user {
-  display: flex;
-  justify-content: center;
-}
-
-.sidebar-user a {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  text-decoration: none;
-  color: var(--blue-400);
-  padding: 8px 16px;
-  border: 2px solid var(--blue-400);
-  border-radius: 30px;
-  background-color: #fff;
-}
-
-.sidebar-user svg {
-  stroke: var(--blue-400);
-}
-
-.sidebar-cart {
-  display: flex;
-  justify-content: center;
-}
-
-.sidebar-cart a {
-  position: relative;
 }
 
 .element-notif {
@@ -182,11 +399,6 @@ label,
   top: 10px !important;
 }
 
-.element-notif--sidebar {
-  right: -7px !important;
-  top: 30px !important;
-}
-
 .basket-element-notif-text {
   direction: ltr;
   font-size: 12px;
@@ -194,50 +406,17 @@ label,
   color: #fff !important;
 }
 
-.sidebar-support {
-  display: flex;
-  justify-content: center;
-}
-
-.sidebar-support svg {
-  stroke: #fff;
-}
-
-.sidebar-support a {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  border-radius: 30px;
-  text-decoration: none;
-  background-color: var(--blue-400);
-  color: #fff;
-  transition: all 0.2s ease;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.sidebar-support a:hover {
-  padding: 12px 20px;
-}
-
-.sidebar-support a p {
-  max-width: 0;
-  opacity: 0;
-  transition: all 0.2s ease;
-  overflow: hidden;
-  margin: 0;
-}
-
-.sidebar-support a:hover p {
-  max-width: 100px;
-  opacity: 1;
-  padding-right: 6px;
-}
-
 .topbar {
   background-color: #fff;
   padding: 6px 12px 8px 12px;
   z-index: 30;
+}
+
+/* The search button with the basket-service link to the right of it. */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .topbar-search > button {
@@ -250,6 +429,35 @@ label,
   padding: 4px 8px;
   color: #323232;
   font-size: 14px;
+}
+
+/* Same outlined pill as the desktop "ورود / ثبت نام" button, in orange. */
+.topbar-cta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 2px solid var(--orange-400);
+  border-radius: 30px;
+  background-color: #fff;
+  color: var(--orange-400);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.topbar-cta:hover,
+.topbar-cta:focus-visible,
+.topbar-cta:active {
+  background-color: var(--orange-400);
+  color: #fff;
+}
+
+.topbar-cta svg {
+  stroke: currentColor;
+  flex: 0 0 auto;
 }
 
 .menu-btn-mobile {
@@ -294,21 +502,21 @@ label,
 ul.top-menu {
   margin: 0;
   padding: 0;
-  position: relative;
 }
 
+/* The mega-menu is positioned against .site-header rather than the list, so it
+   spans the full header width and is not clipped by .header-nav's overflow. */
 ul.top-menu > li > ul {
   position: absolute;
-  width: 100%;
-  display: flex;
-  background-color: #f9f9f9;
-  z-index: 11;
+  top: 100%;
   right: 0;
-  top: 50px;
+  left: 0;
+  display: flex;
+  background-color: #fff;
+  z-index: 11;
   padding: 16px 32px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   border: 1px solid #e9e9e9;
-  border-radius: 0 0 30px 30px;
   visibility: hidden;
   opacity: 0;
   transition: all 0.2s;
@@ -321,7 +529,6 @@ ul.top-menu > li:hover > ul {
 
 ul.top-menu > li:hover > a {
   color: var(--orange-400);
-  background-color: var(--orange-50);
 }
 
 ul.top-menu > li:hover > a::after {
@@ -679,38 +886,27 @@ ul.top-menu > li > ul > li > ul li a:hover::before {
   color: var(--blue-400);
 }
 
-.bottombar-support a {
-  position: absolute;
-  top: -70px;
-  right: 16px;
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  border-radius: 30px;
-  text-decoration: none;
-  background-color: var(--blue-400);
-  color: #fff;
-  transition: all 0.2s ease;
-  overflow: hidden;
-  white-space: nowrap;
+/* ==========================================================================
+   Drag to scroll
+
+   Any strip carrying data-drag-scroll can be pulled sideways with the mouse.
+   The script adds .is-draggable only while there is somewhere to scroll to, so
+   a strip whose content already fits keeps the ordinary cursor.
+   ========================================================================== */
+
+[data-drag-scroll].is-draggable {
+  cursor: grab;
 }
 
-.bottombar-support a:hover {
-  padding: 12px 20px;
+[data-drag-scroll].is-draggable:active {
+  cursor: grabbing;
 }
 
-.bottombar-support a p {
-  max-width: 0;
-  opacity: 0;
-  transition: all 0.2s ease;
-  overflow: hidden;
-  margin: 0;
-}
-
-.bottombar-support a:hover p {
-  max-width: 100px;
-  opacity: 1;
-  padding-right: 6px;
+/* While a drag is in flight the browser's own smooth scrolling would lag
+   behind the pointer, so it stands down until the gesture has settled. */
+[data-drag-scroll].is-drag-scrolling {
+  scroll-behavior: auto;
+  user-select: none;
 }
 
 footer {
@@ -813,10 +1009,6 @@ footer {
   transition: all 0.2s ease;
 }
 
-.social-links li a i {
-  transition: all 0.2s ease;
-}
-
 .social-links li:last-child a {
   margin-right: 0 !important;
 }
@@ -865,20 +1057,9 @@ footer {
 }
 
 @media (max-width: 991.98px) {
-  html,
-  body {
-    height: auto !important;
-    overflow: visible !important;
-  }
-
+  /* room for the fixed bottom bar */
   .content {
-    height: auto !important;
-    overflow-y: visible !important;
-    padding-bottom: 86px !important;
-  }
-
-  .col-l {
-    width: 100% !important;
+    padding-bottom: 86px;
   }
 
   footer {

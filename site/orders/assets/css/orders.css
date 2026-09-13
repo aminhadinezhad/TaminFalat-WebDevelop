@@ -5,8 +5,15 @@
 .product-slider {
   flex-wrap: nowrap;
   scroll-behavior: smooth;
+  /* stops a sideways flick from turning into a browser back gesture */
+  overscroll-behavior-x: contain;
+  /* the arrows already say where the reader is */
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+.product-slider::-webkit-scrollbar {
+  display: none;
 }
 
 .product-arrow {
@@ -26,10 +33,6 @@
   z-index: 10;
   color: #333;
   transition: opacity 0.3s ease;
-}
-
-.product-arrow i {
-  font-size: 14px;
 }
 
 .product-arrow:disabled {

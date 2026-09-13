@@ -1,46 +1,51 @@
 'use strict';
-const productSliders = document.querySelectorAll('.product-slider-wrapper');
 
-productSliders.forEach(wrapper => {
-  const productSlider = wrapper.querySelector('.product-slider');
-  const proPrevBtn = wrapper.querySelector('.product-arrow-prev');
-  const proNextBtn = wrapper.querySelector('.product-arrow-next');
-  const scrollAmount = 80;
+/**
+ * The product strips on an order card.
+ *
+ * Each strip is an ordinary scroll container, so the phone swipe comes from the
+ * browser and the mouse drag from the shared `data-drag-scroll` gesture in
+ * global.js. Only the arrows are wired up here.
+ */
+function initProductStrips() {
+  /** Sub-pixel slack when asking whether an end has been reached. */
+  const EDGE_SLACK = 5;
+  /** One product at a time. */
+  const STEP = 80;
 
-  function updateButtons() {
-    const maxScroll = productSlider.scrollWidth - productSlider.clientWidth;
-    const currentScroll = Math.abs(productSlider.scrollLeft);
+  document.querySelectorAll('.product-slider-wrapper').forEach(wrapper => {
+    const strip = wrapper.querySelector('.product-slider');
+    const previousButton = wrapper.querySelector('.product-arrow-prev');
+    const nextButton = wrapper.querySelector('.product-arrow-next');
+    if (!strip || !previousButton || !nextButton) return;
 
-    if (maxScroll <= 0) {
-      proPrevBtn.classList.add('d-none');
-      proNextBtn.classList.add('d-none');
-      return;
-    } else {
-      proPrevBtn.classList.remove('d-none');
-      proNextBtn.classList.remove('d-none');
+    const offset = () => Math.abs(strip.scrollLeft);
+    const limit = () => strip.scrollWidth - strip.clientWidth;
+
+    function syncButtons() {
+      // A strip whose products already fit has nowhere to go.
+      const scrollable = limit() > EDGE_SLACK;
+      previousButton.classList.toggle('d-none', !scrollable);
+      nextButton.classList.toggle('d-none', !scrollable);
+      if (!scrollable) return;
+
+      previousButton.toggleAttribute('disabled', offset() <= EDGE_SLACK);
+      nextButton.toggleAttribute('disabled', offset() >= limit() - EDGE_SLACK);
     }
 
-    if (currentScroll < 5) {
-      proPrevBtn.setAttribute('disabled', 'true');
-      proNextBtn.removeAttribute('disabled');
-    } else if (currentScroll >= maxScroll - 5) {
-      proNextBtn.setAttribute('disabled', 'true');
-      proPrevBtn.removeAttribute('disabled');
-    } else {
-      proPrevBtn.removeAttribute('disabled');
-      proNextBtn.removeAttribute('disabled');
-    }
-  }
+    /** The strip reads right to left, so "next" travels towards negative offsets. */
+    strip.addEventListener('scroll', syncButtons, { passive: true });
+    previousButton.addEventListener('click', () => {
+      strip.scrollBy({ left: STEP, behavior: 'smooth' });
+    });
+    nextButton.addEventListener('click', () => {
+      strip.scrollBy({ left: -STEP, behavior: 'smooth' });
+    });
 
-  productSlider.addEventListener('scroll', updateButtons);
-  window.addEventListener('resize', updateButtons);
-  updateButtons();
-
-  proPrevBtn.addEventListener('click', () => {
-    productSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    // The card can be resized by the window or by its own content loading.
+    new ResizeObserver(syncButtons).observe(strip);
+    syncButtons();
   });
+}
 
-  proNextBtn.addEventListener('click', () => {
-    productSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
-});
+document.addEventListener('DOMContentLoaded', initProductStrips);
