@@ -233,14 +233,14 @@ label,
   transition: stroke 0.2s ease;
 }
 
-.header-user a:hover {
+/* .header-user a:hover {
   background-color: var(--blue-400);
   color: #fff;
-}
+} */
 
-.header-user a:hover svg {
+/* .header-user a:hover svg {
   stroke: #fff;
-}
+} */
 
 .header-cart a {
   position: relative;
@@ -250,31 +250,33 @@ label,
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--orange-70);
-  border: 1px solid var(--orange-100);
+  border: 2px solid var(--orange-400);
+  background-color: #fff;
+  color: var(--orange-400);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.header-cart a:hover {
-  background-color: var(--orange-100);
-  border-color: var(--orange-200);
-}
+/* .header-cart a:hover {
+  background-color: var(--orange-400);
+  color: #fff;
+} */
 
 .header-cart svg {
+  color: currentColor;
   width: 24px;
   height: 24px;
 }
 
 .element-notif--header {
-  right: -4px !important;
-  top: -4px !important;
+  right: -8px !important;
+  top: -8px !important;
   padding: 0 !important;
 }
 
 .element-notif--header.basket-element-notif {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .element-notif--header .basket-element-notif-text {
@@ -324,14 +326,16 @@ label,
   font-weight: 600;
   white-space: nowrap;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.header-nav-cta:hover,
+/* .header-nav-cta:hover,
 .header-nav-cta:focus-visible {
   background-color: var(--orange-400);
   color: #fff;
-}
+} */
 
 .header-nav-cta svg {
   stroke: currentColor;
@@ -445,15 +449,17 @@ label,
   font-weight: 600;
   white-space: nowrap;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.topbar-cta:hover,
+/* .topbar-cta:hover,
 .topbar-cta:focus-visible,
 .topbar-cta:active {
   background-color: var(--orange-400);
   color: #fff;
-}
+} */
 
 .topbar-cta svg {
   stroke: currentColor;
